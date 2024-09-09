@@ -95,7 +95,7 @@
     (if (== $variables ())
         $var
         (if (== $var (car-atom $variables))
-            (generateRandomVar $var $variables)
+            (genRandomVar $var $variables)
             (find-replacement $var (let* (
                         ($temp (cdr-atom $variables))
                         ($tail (car-atom $temp)))
@@ -179,7 +179,8 @@
 )
 
  ;Test cases
-! (expand_conjunction (Inheritance $X $Y) (Inheritance $Z $W $A) &db 10 2 False)
+! (alpha_convert (Inheritance $Y $X ConceptNode Test $Z) ($Y ($U ($V ()))))
+ ;! (expand_conjunction (Inheritance $X $Y) (Inheritance $Z $W $A) &db 10 2 False)
  ; ! (get_variables (Inheritance $Y $X ConceptNode Test $Z))
  ; ! (collapse (replace (Inheritance $Y $Y ConceptNode Test $Z $Z $A)  ($X ($Y ($A ())))))
  ; ! (let $x (alpha_convert (Inheritance $Y $X ConceptNode Test $Z) ($Y ($U ($V ())))) (get_variables $x))
