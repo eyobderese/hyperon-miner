@@ -161,15 +161,19 @@
  ;; The copyDatabase function is designed to create a copy of the given database and return the new database.
  ;;This function ensures that all the contents of the original database are duplicated into a new database instance
  ;;copy-db function is designed to create a copy of the given database and return the new database.
-(= (copy-db $db $old-db-content)
-    (if (== $old-db-content ()) $db
-        (let* ( ($_ (add-atom $db (car-atom $old-db-content)))
+; (= (copy-db $db $old-db-content)
+;   (if (== $old-db-content ()) $db
+;        (let* ( ($_ (add-atom $db (car-atom $old-db-content)))
+;
+;            )
+;        (copy-db $db (cdr-atom $old-db-content))
+;    )
+;
+;))
 
-            )
-        (copy-db $db (cdr-atom $old-db-content))
-    )
-
-))
+(= (copy-db $space $atoms) 
+        (add-atom $space (superpose $atoms))
+)
 
  ; The add_n_atoms_to_db function is designed to add a specified number of atoms to a given database. This function recursively adds atoms until the specified number is reached.
  ; Parameters
